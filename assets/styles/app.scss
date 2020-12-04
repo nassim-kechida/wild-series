@@ -1,0 +1,9 @@
+$theme-colors: (
+        "primary": #E314E7,
+        "danger": #ff4136
+);
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: white;
+}
