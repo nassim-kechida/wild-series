@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
+use App\Entity\Program;
+use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,20 +17,26 @@ class ProgramController extends AbstractController
      * @Route("/", name="index")
      * @return Response
      */
-    public function index(): Response
+    public function index(ProgramRepository $programRepository): Response
     {
-        return $this->render('program/index.html.twig');
+        $programs = $programRepository->findAll();
+
+
+        return $this->render('program/index.html.twig', [
+            'programs'=>$programs
+        ]);
     }
 
     /**
-     * @Route("/{id}", requirements={"id"="\d+"}, methods={"GET"}, name="show")
+     * @Route("/show/{id<^[0-9]+$>}", name="show")
      * @param $id
      * @return Response
      */
-    public function show($id): Response
+    public function show(Program $program): Response
     {
+
         return $this->render('program/show.html.twig', [
-            'id' => $id,
+            'program' => $program,
         ]);
     }
 }

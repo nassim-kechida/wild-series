@@ -3,5 +3,11 @@
 {% block title %}Hello ProgramController!{% endblock %}
 
 {% block body %}
-    <h1>Program {{ id }}</h1>
+    <div class="card mb-3">
+        <img src="{{ program.poster }}" class="card-img-top w-50" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ program.title }}</h5>
+            <p class="card-text">{{ program.summary }}</p>
+        </div>
+    </div>
 {% endblock %}
