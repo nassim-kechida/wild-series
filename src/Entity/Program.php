@@ -6,6 +6,7 @@ use App\Repository\ProgramRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ *  @ORM\Column(type="string", length=255)
  * @ORM\Entity(repositoryClass=ProgramRepository::class)
  */
 class Program
