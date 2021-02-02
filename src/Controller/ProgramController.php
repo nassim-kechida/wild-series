@@ -24,10 +24,12 @@ class ProgramController extends AbstractController
      * @param $id
      * @return Response
      */
-    public function show($id): Response
+    public function show(Program $program): Response
     {
         return $this->render('program/show.html.twig', [
             'id' => $id,
         ]);
     }
 }
+public function show(Program $program): Response
+
